@@ -198,13 +198,14 @@ func toBRL(w http.ResponseWriter, req *http.Request) {
 		}
 		s = u
 	}
-	w.Header().Set("Content-type", "text/html; charset=utf-8")
-	w.Write([]byte("<html>\n"))
-	w.Write([]byte("  <head>\n"))
-	w.Write([]byte("    <link rel='stylesheet' href='static/mystyle.css'>\n"))
-	w.Write([]byte("  </head>\n"))
-	w.Write([]byte("  <body>\n"))
-	w.Write([]byte("<pre>"))
+	w.Header().Set("Content-type", "text/plain; charset=utf-8")
+	//w.Header().Set("Content-type", "text/html; charset=utf-8")
+	//w.Write([]byte("<html>\n"))
+	//w.Write([]byte("  <head>\n"))
+	//w.Write([]byte("    <link rel='stylesheet' href='static/mystyle.css'>\n"))
+	//w.Write([]byte("  </head>\n"))
+	//w.Write([]byte("  <body>\n"))
+	//w.Write([]byte("<pre>"))
 	lines := SplitLines(s)
 	for _,line := range lines {
 		var translation string
@@ -224,9 +225,9 @@ func toBRL(w http.ResponseWriter, req *http.Request) {
 		}
 		fmt.Fprintf(w, "%s\n", translation)
 	}
-	w.Write([]byte("    </pre>"))
-	w.Write([]byte("  </body>\n"))
-	w.Write([]byte("</html>\n"))
+	//w.Write([]byte("    </pre>"))
+	//w.Write([]byte("  </body>\n"))
+	//w.Write([]byte("</html>\n"))
 }
 
 func fromBRL(w http.ResponseWriter, req *http.Request) {
@@ -247,13 +248,14 @@ func fromBRL(w http.ResponseWriter, req *http.Request) {
 		}
 		s = u
 	}
-	w.Header().Set("Content-type", "text/html; charset=utf-8")
-	w.Write([]byte("<html>\n"))
-	w.Write([]byte("  <head>\n"))
-	w.Write([]byte("    <link rel='stylesheet' href='static/mystyle.css'>\n"))
-	w.Write([]byte("  </head>\n"))
-	w.Write([]byte("  <body>\n"))
-	w.Write([]byte("    <pre>"))
+	w.Header().Set("Content-type", "text/plain; charset=utf-8")
+	//w.Header().Set("Content-type", "text/html; charset=utf-8")
+	//w.Write([]byte("<html>\n"))
+	//w.Write([]byte("  <head>\n"))
+	//w.Write([]byte("    <link rel='stylesheet' href='static/mystyle.css'>\n"))
+	//w.Write([]byte("  </head>\n"))
+	//w.Write([]byte("  <body>\n"))
+	//w.Write([]byte("    <pre>"))
 	lines := SplitLines(s)
 	for _,line := range lines {
 		var translation string
@@ -274,9 +276,9 @@ func fromBRL(w http.ResponseWriter, req *http.Request) {
 		}
 		fmt.Fprintf(w, "%s\n", translation)
 	}
-	w.Write([]byte("    </pre>"))
-	w.Write([]byte("  </body>\n"))
-	w.Write([]byte("</html>\n"))
+	//w.Write([]byte("    </pre>"))
+	//w.Write([]byte("  </body>\n"))
+	//w.Write([]byte("</html>\n"))
 }
 
 // examples at the root page
@@ -293,6 +295,7 @@ func defaultPage(w http.ResponseWriter, req *http.Request) {
 	w.Write([]byte("      <li><a href='/tobrl?original=true&u=https://www.gutenberg.org/cache/epub/8001/pg8001.txt'>Genesis, with original text</a></li>\n"))
 	w.Write([]byte("      <li><a href='/tobrl?original=true&computer=true&u=http://localhost:8090/static/usl.py'>Python, with computer braille of original text</a></li>\n"))
 	w.Write([]byte("      <li><a href='/tobrl?original=true&computer=false&u=http://localhost:8090/static/usl.py'>Python, with UEB braille of original text</a></li>\n"))
+	w.Write([]byte("      <li><a href='/tobrl?original=true&u=https://archive.org/stream/WarIsARacket/WarIsARacket_djvu.txt'>Smedley Butler: War Is A Racket</a></li>\n"))
 	w.Write([]byte("      <li><a href='/tobrl?s=Hello,+World!'>Hello, World!</a></li>\n"))
 	w.Write([]byte("      <li><a href='/frombrl?s=⠠⠓⠑⠇⠇⠕⠂+⠠⠸⠺⠖'>⠠⠓⠑⠇⠇⠕⠂⠀⠠⠸⠺⠖</a></li>\n"))
 	w.Write([]byte("    </ul>\n"))
