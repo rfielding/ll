@@ -63,9 +63,10 @@ func brailleInit() {
 	}
 	// Swap 124 and 127 the underscore and delete,
 	// a strange exception logically, but I see it in real terminals
-	braillePermTmp := braillePerm[0x7F]
-	braillePerm[0x7F] = braillePerm[0x5F]
-	braillePerm[0x5F] = braillePermTmp
+	////Freedom Scientific has the dot8 in underbar, but Orbit does not
+	////braillePermTmp := braillePerm[0x7F]
+	////braillePerm[0x7F] = braillePerm[0x5F]
+	////braillePerm[0x5F] = braillePermTmp
 
 	// Duplicated it all in high bits
 	for i := 0; i < 128; i++ {

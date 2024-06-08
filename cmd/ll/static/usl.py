@@ -4,9 +4,9 @@ import random
 # this is our function to fit with the data
 # there are only three weights to deal with
 def uslFunc(weights, n):
-	alpha = weights[0] # contention
-	beta = weights[1] # coherence
-	gamma = weights[2] # processor speed
+	alpha = weights[0] # contention w_0 is queing behind resources
+	beta = weights[1] # coherence w_1 is causing others to do work for you
+	gamma = weights[2] # processor speed, like in hertz for w_2
 	return (gamma * n) / (1 + alpha*(n - 1) + beta * n * (n - 1))
 
 def uslConstraints(weights,sample):
